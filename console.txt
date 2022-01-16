@@ -1,0 +1,10 @@
+бд
+
+php artisan make:model Author -cfm
+php artisan make:model BookAuthor -cm
+php artisan make:model Book -cfm
+
+
+обнова
+
+
