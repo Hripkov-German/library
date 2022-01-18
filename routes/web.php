@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\AuthorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,19 +15,9 @@ use App\Http\Controllers\BookController;
 |
 */
 
+Route::resource('books', BookController::class);
+Route::resource('authors', AuthorController::class);
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/add_book', function () {
-    return view('add_book');
-});
-
-Route::get('/add_author', function () {
-    return view('add_author');
-});
-
-
-Route::match(['post', 'get', 'delete'],'/books', [BookController::class, 'show']);
-Route::match(['post', 'get', 'delete'],'/authors', [AuthorController::class, 'show']);
-

@@ -1,9 +1,0 @@
-бд
-php artisan make:model Author -cfm
-php artisan make:model BookAuthor -cm
-php artisan make:model Book -cfm
-
-
-сид
-php artisan migrate
-php artisan db:seed
