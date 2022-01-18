@@ -26,7 +26,7 @@
             <td>Автор(ы)</td>
             <td>{{$book['date_published']}}</td>
             <td align="center">--></td>
-            <td align="center">X</td>
+            <td align="center">Delete</td>
         </tr>
     @endforeach
 </table>

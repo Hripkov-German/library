@@ -8,6 +8,7 @@ use App\Models\BookAuthor;
 
 class BookController extends Controller
 {
+    // показ
     function show()
     {
         $book_data = Book::all();

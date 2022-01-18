@@ -28,6 +28,6 @@ Route::get('/add_author', function () {
 });
 
 
-Route::get('/books', [BookController::class, 'show']);
-Route::get('/authors', [AuthorController::class, 'show']);
+Route::match(['post', 'get', 'delete'],'/books', [BookController::class, 'show']);
+Route::match(['post', 'get', 'delete'],'/authors', [AuthorController::class, 'show']);
 
