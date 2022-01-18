@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -105,5 +106,11 @@ class BookController extends Controller
 
         return redirect()->route('books.index')
             ->with('success', 'Книга успешно удалена');
+    }
+
+    public function getAuthors() {
+        Book::find(1)->authors;
+        $book = Book::find(1);
+        $book->authors;
     }
 }

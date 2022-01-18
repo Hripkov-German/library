@@ -22,7 +22,7 @@ class Author extends Model
 		'name' => 'required',
     ];
 
-    protected $perPage = 20;
+    protected $perPage = 50;
 
     /**
      * Attributes that should be mass-assignable.
@@ -37,8 +37,6 @@ class Author extends Model
      */
     public function books()
     {
-        return $this->belongsToMany(Book::class, 'book_authors');
+        return $this->belongsToMany(Book::class, 'book_authors','author_id','book_id');
     }
-
-
 }

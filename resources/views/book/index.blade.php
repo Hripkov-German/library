@@ -37,6 +37,7 @@
                                         <th>id</th>
 
 										<th>Название</th>
+{{--                                        <th>Автор(ы)</th>--}}
 										<th>Год издания</th>
 
                                         <th></th>
@@ -45,9 +46,10 @@
                                 <tbody>
                                     @foreach ($books as $book)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td>{{ $book->id }}</td>
 
 											<td>{{ $book->title }}</td>
+{{--                                            <td>{{ $book->name }}</td>--}}
 											<td>{{ $book->date_published }}</td>
 
                                             <td>

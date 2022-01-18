@@ -14,9 +14,9 @@ class CreateBookAuthorsTable extends Migration
     public function up()
     {
         Schema::create('book_authors', function (Blueprint $table) {
-            $table->unsignedBigInteger('book_id')->nullable();
+            $table->unsignedBigInteger('book_id');
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
-            $table->unsignedBigInteger('author_id')->nullable();
+            $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
         });
     }
