@@ -21,7 +21,7 @@ Route::get('/books', function () {
     return view('books');
 });
 
-Route::get('/books/add', function () {
+Route::get('/add_book', function () {
     return view('add_book');
 });
 
@@ -29,6 +29,6 @@ Route::get('/authors', function () {
     return view('authors');
 });
 
-Route::get('/authors/add', function () {
+Route::get('/add_author', function () {
     return view('add_author');
 });
