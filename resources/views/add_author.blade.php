@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-Тест добавить автора
+<h1>Тест добавить автора</h1>
+<br><a href="/">Вернуться назад</a>
 </body>
 </html>
