@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\Author::factory(10)->create();
         \App\Models\Book::factory(20)->create();
-        $books = \App\Models\Book::all();
+        $authors = \App\Models\Author::all();
 
-        \App\Models\Author::all()->each(function ($author) use ($books) {
-            $author->books()->attach(
-                $books->random(rand(1, 3))->pluck('id')->toArray()
+        \App\Models\Book::all()->each(function ($book) use ($authors) {
+            $book->authors()->attach(
+                $authors->random(rand(1, 3))->pluck('id')->toArray()
             );
         });
     }
