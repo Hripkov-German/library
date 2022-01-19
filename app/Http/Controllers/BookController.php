@@ -47,7 +47,8 @@ class BookController extends Controller
         request()->validate(Book::$rules);
 
         $book = Book::create($request->all());
-
+//        $author = Author::create($request->find(1));
+//        $book->authors()->attach($author);
         return redirect()->route('books.index')
             ->with('success', 'Книга успешно добавлена');
     }

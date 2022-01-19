@@ -37,8 +37,8 @@ class Book extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function books()
+    public function authors()
     {
-        return $this->belongsToMany(Book::class);
+        return $this->belongsToMany(Author::class);
     }
 }

@@ -37,6 +37,7 @@
                                         <th>id</th>
 
 										<th>ФИО</th>
+                                        <th>Количество книг</th>
 
                                         <th></th>
                                     </tr>
@@ -47,6 +48,14 @@
                                             <td>{{ ++$i }}</td>
 
 											<td>{{ $author->name }}</td>
+                                            <td><?php
+                                                $count=0;
+                                                foreach($author->books as $book) {
+                                                    $count++;
+                                                }
+                                                echo $count;
+                                                ?>
+                                            </td>
 
                                             <td>
                                                 <form action="{{ route('authors.destroy',$author->id) }}" method="POST">
