@@ -19,7 +19,7 @@ class Author extends Model
 {
     use HasFactory;
     static $rules = [
-		'name' => 'required',
+		'name' => 'required'
     ];
 
     protected $perPage = 50;

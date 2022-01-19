@@ -44,7 +44,7 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         request()->validate(Author::$rules);
-
+        
         $author = Author::create($request->all());
 
         return redirect()->route('authors.index')
