@@ -6,6 +6,29 @@
             {{ Form::text('title', $book->title, ['class' => 'form-control' . ($errors->has('title') ? ' is-invalid' : ''), 'placeholder' => 'Война и Мир']) }}
             {!! $errors->first('title', '<div class="invalid-feedback">:message</p>') !!}
         </div>
+
+        <div class="form-group">
+            Авторы:<br>
+            <select name="authors[]" multiple>
+                <?php
+                use App\Models\Author;
+                $authors = Author::all();
+                ?>
+                @foreach($authors as $author)
+                        <option value="{{ $author->id }}">{{ $author->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+{{--        <?php--}}
+{{--                foreach ($book->authors as $author)--}}
+{{--                {--}}
+{{--                    echo $author->pivot->author_id."<br>";--}}
+{{--                }--}}
+{{--                echo "<br>";--}}
+
+{{--        ?><br>--}}
+
         <div class="form-group">
             {{ Form::label('Год издания') }}
             {{ Form::text('date_published', $book->date_published, ['class' => 'form-control' . ($errors->has('date_published') ? ' is-invalid' : ''), 'placeholder' => '1867-01-01']) }}

@@ -19,9 +19,10 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
+
     static $rules = [
-		'title' => 'required',
-		'date_published' => 'required',
+        'title' => 'required',
+        'date_published' => 'required',
     ];
 
     protected $perPage = 50;
@@ -31,7 +32,7 @@ class Book extends Model
      *
      * @var array
      */
-    protected $fillable = ['title','date_published'];
+    protected $fillable = ['title', 'date_published'];
 
 
     /**

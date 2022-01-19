@@ -90,7 +90,7 @@ class BookController extends Controller
 
         $book->update($request->all());
 
-        return redirect()->route('books.index')
+            return redirect()->route('books.index')
             ->with('success', 'Книга успешно обновлена');
     }
 

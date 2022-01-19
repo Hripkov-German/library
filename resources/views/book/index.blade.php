@@ -18,7 +18,7 @@
 
 {{--                            Фильтр по авторам--}}
                             <form method="GET">
-                                <select name="author_filter" id="author_filter">
+                                <select name="author_filter">
                                     @foreach(App\Models\Author::all() as $author)
                                         <option value="{{ $author->name }}">{{ $author->name }}</option>
                                     @endforeach
