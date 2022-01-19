@@ -9,7 +9,7 @@
 
         <div class="form-group">
             Авторы:<br>
-            <select name="authors[]" multiple>
+            <select name="pivot_author_id[]" multiple>
                 <?php
                 use App\Models\Author;
                 $authors = Author::all();
@@ -19,15 +19,6 @@
                 @endforeach
             </select>
         </div>
-
-{{--        <?php--}}
-{{--                foreach ($book->authors as $author)--}}
-{{--                {--}}
-{{--                    echo $author->pivot->author_id."<br>";--}}
-{{--                }--}}
-{{--                echo "<br>";--}}
-
-{{--        ?><br>--}}
 
         <div class="form-group">
             {{ Form::label('Год издания') }}
