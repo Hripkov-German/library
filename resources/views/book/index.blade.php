@@ -16,6 +16,16 @@
                                 {{ __('Книги') }}
                             </span>
 
+{{--                            Фильтр по авторам--}}
+                            <form method="GET">
+                                <select name="author_filter" id="author_filter">
+                                    @foreach(App\Models\Author::all() as $author)
+                                        <option value="{{ $author->name }}">{{ $author->name }}</option>
+                                    @endforeach
+                                </select>
+                                <button type="submit" class="btn btn-primary btn-sm float-right">Выбрать автора</button>
+                            </form>
+
                              <div class="float-right">
                                 <a href="{{ route('books.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Добавить') }}
@@ -28,10 +38,17 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
-
+                    <?php
+                    if (isset($_GET['author_filter'])) {
+                        $books = App\Models\Book::whereHas('authors', function ($i) {
+                            $i->where('name', '=', $_GET['author_filter']);
+                        })->paginate();
+                    }
+                    ?>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
+
                                 <thead class="thead">
                                     <tr>
                                         <th>id</th>
