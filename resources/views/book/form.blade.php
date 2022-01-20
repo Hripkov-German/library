@@ -7,18 +7,15 @@
             {!! $errors->first('title', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
-        <div class="form-group">
-            Авторы:<br>
-            <select name="pivot_author_id[]" multiple>
-                <?php
-                use App\Models\Author;
-                $authors = Author::all();
-                ?>
-                @foreach($authors as $author)
-                        <option value="{{ $author->id }}">{{ $author->name }}</option>
-                @endforeach
-            </select>
-        </div>
+        <?php
+        $authors = \App\Models\Author::all();
+        ?>
+        <p>Автор(ы):</p>
+        <select name="author_id[]" multiple>
+            @foreach($authors as $author)
+                <option value="{{$author->id}}">{{$author->name}}</option>
+            @endforeach
+        </select>
 
         <div class="form-group">
             {{ Form::label('Год издания') }}

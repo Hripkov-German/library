@@ -39,7 +39,7 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -54,7 +54,7 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -67,7 +67,7 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -80,17 +80,19 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  Book $book
+     * @param \Illuminate\Http\Request $request
+     * @param Book $book
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Book $book)
     {
         request()->validate(Book::$rules);
-
+        $author_ids = $_POST['author_id'];
         $book->update($request->all());
+        $book->authors()->sync($author_ids);
 
-            return redirect()->route('books.index')
+
+        return redirect()->route('books.index')
             ->with('success', 'Книга успешно обновлена');
     }
 
